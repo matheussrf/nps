@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPS - Net Promoter Score | Guia Completo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <i class="fas fa-chart-line"></i>
+                <span>NPS Guide</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#conceito">Conceito</a></li>
+                <li><a href="#calculo">Cálculo</a></li>
+                <li><a href="#vantagens">Vantagens</a></li>
+                <li><a href="#implementacao">Implementação</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Net Promoter Score
+                        <span class="highlight">(NPS)</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Descubra como medir a satisfação e lealdade dos seus clientes com a métrica mais importante do mundo dos negócios
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#conceito" class="btn btn-primary">
+                            <i class="fas fa-play"></i>
+                            Começar agora
+                        </a>
+                        <a href="#calculo" class="btn btn-secondary">
+                            <i class="fas fa-calculator"></i>
+                            Ver cálculo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conceito Section -->
+        <section id="conceito" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>O que é NPS?</h2>
+                    <p>Entenda os fundamentos do Net Promoter Score</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Definição</h3>
+                        <p>O NPS é uma metodologia que utiliza pesquisas para analisar o nível de satisfação e lealdade dos clientes de uma empresa. É uma métrica que mede a probabilidade de recomendação de uma empresa por parte de seus clientes.</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="card-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>Origem</h3>
+                        <p>Criado em 2003 por Frederick F. Reichheld e publicado na Harvard Business Review. O conceito revolucionou a forma como as empresas medem a satisfação do cliente, focando na pergunta: "O quanto você recomendaria nossa empresa?"</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Classificação</h3>
+                        <p>Os clientes são classificados em três grupos baseados em suas respostas (escala 0-10): <strong>Detratores</strong> (0-6), <strong>Neutros</strong> (7-8) e <strong>Promotores</strong> (9-10).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cálculo Section -->
+        <section id="calculo" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Como calcular o NPS?</h2>
+                    <p>Aprenda a fórmula e veja exemplos práticos</p>
+                </div>
+                
+                <div class="calculation-container">
+                    <div class="formula-card">
+                        <h3>Fórmula do NPS</h3>
+                        <div class="formula">
+                            <span class="formula-text">NPS = % Promotores - % Detratores</span>
+                        </div>
+                        <p>O resultado varia de <strong>-100</strong> a <strong>+100</strong></p>
+                    </div>
+                    
+                    <div class="calculator">
+                        <h3>Calculadora NPS</h3>
+                        <div class="calculator-inputs">
+                            <div class="input-group">
+                                <label for="promoters">Promotores (9-10)</label>
+                                <input type="number" id="promoters" min="0" value="60">
+                            </div>
+                            <div class="input-group">
+                                <label for="neutrals">Neutros (7-8)</label>
+                                <input type="number" id="neutrals" min="0" value="25">
+                            </div>
+                            <div class="input-group">
+                                <label for="detractors">Detratores (0-6)</label>
+                                <input type="number" id="detractors" min="0" value="15">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="calculateNPS()">
+                            <i class="fas fa-calculator"></i>
+                            Calcular NPS
+                        </button>
+                        <div class="result" id="nps-result">
+                            <div class="result-score">NPS: <span id="calculated-nps">45</span></div>
+                            <div class="result-interpretation" id="nps-interpretation">Zona de Aperfeiçoamento</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nps-zones">
+                    <h3>Zonas de Classificação</h3>
+                    <div class="zones-grid">
+                        <div class="zone zone-critical">
+                            <div class="zone-range">-100 a 0</div>
+                            <div class="zone-name">Zona Crítica</div>
+                            <div class="zone-description">Mais detratores que promotores</div>
+                        </div>
+                        <div class="zone zone-improvement">
+                            <div class="zone-range">1 a 50</div>
+                            <div class="zone-name">Zona de Aperfeiçoamento</div>
+                            <div class="zone-description">Há espaço para melhorias</div>
+                        </div>
+                        <div class="zone zone-quality">
+                            <div class="zone-range">51 a 75</div>
+                            <div class="zone-name">Zona de Qualidade</div>
+                            <div class="zone-description">Boa performance</div>
+                        </div>
+                        <div class="zone zone-excellence">
+                            <div class="zone-range">76 a 100</div>
+                            <div class="zone-name">Zona de Excelência</div>
+                            <div class="zone-description">Performance excepcional</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vantagens Section -->
+        <section id="vantagens" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Vantagens do NPS</h2>
+                    <p>Por que sua empresa deve usar esta métrica</p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Simplicidade</h3>
+                        <p>Fácil de entender e aplicar. Uma única pergunta pode fornecer insights valiosos sobre a satisfação do cliente.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Padronização</h3>
+                        <p>Permite comparar resultados com outras empresas e setores, oferecendo benchmarks claros.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Foco no Cliente</h3>
+                        <p>Identifica promotores e detratores, direcionando ações para melhorar a experiência do cliente.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Crescimento</h3>
+                        <p>Empresas com NPS alto tendem a ter melhor desempenho financeiro e maior lealdade do cliente.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Feedback Rápido</h3>
+                        <p>Permite identificar problemas e oportunidades de melhoria de forma ágil e eficiente.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Qualidade</h3>
+                        <p>Serve como ponto de partida para implementar melhorias na qualidade dos produtos e serviços.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementação Section -->
+        <section id="implementacao" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Como implementar o NPS</h2>
+                    <p>Passos práticos para começar a usar o NPS na sua empresa</p>
+                </div>
+                
+                <div class="implementation-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Defina o objetivo</h3>
+                            <p>Determine o que você quer medir: satisfação geral, produto específico, ou experiência de atendimento.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Crie a pesquisa</h3>
+                            <p>Elabore um questionário simples com a pergunta principal e uma questão aberta para feedback qualitativo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Escolha o canal</h3>
+                            <p>Defina como enviar a pesquisa: email, SMS, pop-up no site, ou após uma interação específica.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Colete os dados</h3>
+                            <p>Execute a pesquisa e garanta uma amostra representativa dos seus clientes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Analise os resultados</h3>
+                            <p>Calcule o NPS, identifique padrões e analise os comentários qualitativos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h3>Tome ações</h3>
+                            <p>Implemente melhorias baseadas nos insights obtidos e acompanhe a evolução do NPS.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="survey-example">
+                    <h3>Exemplo de Pesquisa NPS</h3>
+                    <div class="survey-card">
+                        <div class="survey-question">
+                            <p><strong>Em uma escala de 0 a 10, o quanto você recomendaria nossa empresa para um amigo ou colega?</strong></p>
+                            <div class="rating-scale">
+                                <div class="rating-labels">
+                                    <span>Muito improvável</span>
+                                    <span>Muito provável</span>
+                                </div>
+                                <div class="rating-numbers">
+                                    <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="survey-followup">
+                            <p><strong>Poderia nos contar o motivo da sua nota?</strong></p>
+                            <textarea placeholder="Compartilhe sua experiência conosco..." readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-chart-line"></i>
+                    <span>NPS Guide</span>
+                </div>
+                <p>Guia completo sobre Net Promoter Score para empresas que querem crescer com foco no cliente.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NPS Guide. Desenvolvido para ajudar empresas a entender e implementar o NPS.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
